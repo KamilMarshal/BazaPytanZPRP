@@ -1,0 +1,61 @@
+* {
+    box-sizing: border-box;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /* background-color: #74b9ff; */
+    background-color: #353b48;
+}
+
+#header, .wypelniacz {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1, h2 {
+    font-family: "TW Cen MT", serif;
+    color:#ff6b6b;
+}
+
+form {
+    padding: 20px 50px;
+    border: 1px solid rgba(255, 107, 107, 0.25);
+}
+
+form h2 {
+    text-align: center;
+    margin: 0;
+}
+
+input {
+    margin: 10px 0;
+    text-align: center;
+    width: 100%;
+}
+
+input[type=submit] {
+    background-color: #2f3640;
+    color: #ff6b6b;
+    padding: 5px;
+    font-family: "TW Cen MT", serif;
+    font-size: 100%;
+}
+
+.wypelniacz{
+    float: left;
+    width: 25%;
+    padding-left:6.075%;
+}
+.log
+{
+    width: 100%;
+}
