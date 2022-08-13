@@ -9,19 +9,14 @@
 <body>
 <div id="container">
     <h1>MENU</h1>
-    <h2>Witaj <?php echo($_POST['login'])?>!</h2>
+    <h2>Witaj 
+        <?php 
+        include("connection.php");
+            echo($_SESSION["username"]);
+        ?>!</h2>
     <div class="log">
         <?php
-        $server = 'localhost';
-        $username = $_POST['login'];
-        $password = $_POST['haslo'];
-        $db = 'baza_pytan_zprp';
-
-        $conn = mysqli_connect($server, $username, $password, $db);
-
-        if($conn) echo("zalogowano");
-
-        else echo 'Błędne hasło';
+        
 
 
         ?>
