@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Baza Pytań ZPRP</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 
 </head>
 <body>
@@ -15,21 +15,14 @@
         include("connection.php");
             echo($_SESSION["username"]);
         ?>!</h2>
-    <div class="log">
-        <?php
-        
-
-
-        ?>
+    <div class="wypelniacz">
+        <a href="allquestions.php"><h2>Przeglądaj pytania</h2></a>
     </div>
     <div class="wypelniacz">
-        <h2>Przeglądaj pytania</h2>
+        <a href="shorttest.php"><h2>Rozwiązuj 1 pytanie</h2></a>
     </div>
     <div class="wypelniacz">
-        <h2>Rozwiązuj 1 pytanie</h2>
-    </div>
-    <div class="wypelniacz">
-        <h2>Rozwiązuj 20 pytań</h2>
+        <a href="fulltest.php"><h2>Rozwiązuj 20 pytań</h2></a>
     </div>
 
 

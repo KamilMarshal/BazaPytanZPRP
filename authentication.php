@@ -4,7 +4,7 @@
 <head>
   <?php
     include("connection.php");
-    echo(' <link rel="stylesheet" href="style.css">');
+    echo(' <link rel="stylesheet" href="css/style.css">');
 
     $username = $_POST["login"];
     $password = $_POST["password"];

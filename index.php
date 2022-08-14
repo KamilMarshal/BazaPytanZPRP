@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Baza Pytań ZPRP</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <script src = "scripts.js"></script>
 </head>
 <body>
