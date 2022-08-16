@@ -24,6 +24,7 @@ body {
 h1, h2 {
     font-family: "TW Cen MT", serif;
     color:#ff6b6b;
+    text-align: center;
 }
 
 form {
