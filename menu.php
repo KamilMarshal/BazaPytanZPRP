@@ -14,7 +14,8 @@
         <?php 
         include("connection.php");
             echo($_SESSION["username"]);
-        ?>!</h2>
+        ?>!
+    </h2>
     <div class="wypelniacz">
         <a href="allquestions.php"><h2>Przeglądaj pytania</h2></a>
     </div>

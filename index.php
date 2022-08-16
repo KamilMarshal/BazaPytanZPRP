@@ -9,8 +9,7 @@
 </head>
 <body>
 <div id="container">
-    <div class="wypelniacz"></div>
-    <div id="header">
+    <div class="wypelniacz">
         <h1>Logowanie</h1>
 
         <form action="authentication.php" onsubmit = "return validation()" method="POST">
@@ -21,7 +20,6 @@
         </form>
 
     </div>
-    <div class="wypelniacz"></div>
 
 </div>
 </body>
