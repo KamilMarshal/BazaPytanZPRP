@@ -9,7 +9,7 @@
 </head>
 <body>
 <div id="container">
-    <div class="wypelniacz">
+    <div class="wypelniacz" style="justify-content: center">
         <h1>Logowanie</h1>
 
         <form action="authentication.php" onsubmit = "return validation()" method="POST">

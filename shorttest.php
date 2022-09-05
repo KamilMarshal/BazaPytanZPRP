@@ -18,11 +18,12 @@
     <h2>1 pytanie</h2>
     
     <div id="questions">
-        <form>
+        <form action="shortanswer.php" method="POST">
             <?php 
-                include("connection.php");
+                //include("connection.php");
                 //$idQ = rand(0,399);
-                $idQ = 15;
+                $idQ = 98;
+                $_SESSION["qid"] = $idQ;
                 $sql = "SELECT * FROM questions where id = ".$idQ;
                 $result = $conn->query($sql);
                 if ($result->num_rows > 0) 
@@ -34,12 +35,13 @@
                     echo $row[2]."<br/><br/>";
 
                     for($i = 3; $i<12; $i+=1)
-                        if(isset($row[$i]))
+                        if($row[$i]!="")
                         {
-                            echo '<input type="checkbox" id="odp'.$i.'" name="odp'.$i.'">';
+                            echo '<input type="hidden" name="odp'.$i.'" value="0" />';
+                            echo '<input type="checkbox" name="odp'.$i.'" value="1" />';
                             echo '<label for="odp'.$i.'">'.$row[$i].'</label><br>';
                         }
-                    
+                        echo '<input type="submit" value="Sprawdź">';
                 } 
 
                   $conn->close();

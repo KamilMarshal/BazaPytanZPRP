@@ -41,19 +41,17 @@ form h2 {
 input {
     margin: 10px 0;
     text-align: center;
-    
 }
 
 input[type=submit] {
     background-color: #2f3640;
     color: #ff6b6b;
     padding: 5px;
-    
     font-size: 100%;
 }
 
 .wypelniacz{
-    float: left;
+    display: flex;
     width: 30%;
 }
 
