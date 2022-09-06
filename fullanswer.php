@@ -9,47 +9,43 @@
 ?>
 </head>
 <body>
+
+<h2>Odpowiedzi</h2>
 <div id="questions">
     <?php
 
-    $odp[1] = $_POST["odp3"];
-    $odp[2] = $_POST["odp4"];
-    $odp[3] = $_POST["odp5"];
+for($a=1;$a<31;$a+=1)
+{
+    echo '<div class="answers">';
+    
+    for($i=$a*10;$i<($a*10+10);$i+=10) //wczytywanie moich odp
+        for($j=1;$j<10;$j+=1)
+        {
+            if(isset($_POST["odp".($i+$j)])){
+            $odp[$a][$j] = $_POST["odp".($i+$j)]; //moje odpowiedzi
+            }
+        }
 
-    for($i=6;$i<12;$i+=1)
-    {
-      if(isset($_POST["odp".$i]))
-      {
-          $odp[$i-2] = $_POST["odp".$i];
-      }
-    }
-
-    $sqlA = "SELECT * FROM answers WHERE idAns = {$_SESSION["qid"]}";
-    $sqlQ = "SELECT * FROM questions WHERE id = {$_SESSION["qid"]}";
-
-    $Ans = $conn->query($sqlA)->fetch_array();
+    $sqlQ = "SELECT * FROM questions WHERE id = {$_SESSION["fqid"][$a]}";
+    $sqlA = "SELECT * FROM answers WHERE idAns = {$_SESSION["fqid"][$a]}";
+    
+    $Ans = $conn->query($sqlA)->fetch_array(); //poprawne odpowiedzi
 
     $result = $conn->query($sqlQ);
+
     if ($result->num_rows > 0) 
     {
-      $row = $result->fetch_array();
-
-      echo '<div class="answers">';
-      echo '<span>'.$row[1].'<br></span>';
-      echo '<span>'.$row[2]."<br/><br/></span>";
-
+      $row = $result->fetch_array(); //pytania
+      echo '<span>'.$a.". ".$row[2].'<br/><br/></span>';
       $point = 1;
       
       for($i = 1; $i<10; $i+=1)
-      
-          if(isset($row[$i+2]))
+          if($row[$i+2]!="")
           {
-            
-              
               if($Ans[$i])
               {
                 echo '<span style="color:green";<br>';
-                if($odp[$i]==$Ans[$i]) echo "✔️";
+                if($odp[$a][$i]==$Ans[$i]) echo "✔️";
                 else
                 {
                   echo "❌";
@@ -60,7 +56,8 @@
               else
               {
                 echo '<span style="color:red";<br>';
-                if($odp[$i]==$Ans[$i]) echo "✔️";
+
+                if($odp[$a][$i]==$Ans[$i]) echo "✔️";
                 else
                 {
                   echo "❌";
@@ -71,7 +68,6 @@
               }
               echo '</span>';
           }
-          echo '<div>';
           
     }
     
@@ -79,9 +75,7 @@
     echo '<span class="pkt">1 punkt</span>';
     else echo '<span class="pkt">0 punktów</span>';
     echo '</div>';
-    echo '<a href="shorttest.php"><button>Następne pytanie</button></a>';
-    
-    
+}
 
     ?>
 </div>

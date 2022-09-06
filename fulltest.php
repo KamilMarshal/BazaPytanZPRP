@@ -15,35 +15,39 @@
                 echo($_SESSION["username"]);
             ?>!
     </h3>    
-    <h2>1 pytanie</h2>
+    <h2>30 pytań</h2>
     
     <div id="questions">
-        <form action="shortanswer.php" method="POST">
+        <form action="fullanswer.php" method="POST">
             <?php 
-                //$idQ = rand(0,399);
-                $idQ = 98;
-                $_SESSION["qid"] = $idQ;
+            for($a=1;$a<31;$a+=1)
+            {
+                echo '<div class="answers">';
+                $idQ = rand(0,399);
+                //$idQ = 98;
+                $_SESSION["fqid"][$a] = $idQ;
                 $sql = "SELECT * FROM questions where id = ".$idQ;
                 $result = $conn->query($sql);
                 if ($result->num_rows > 0) 
                 {
-                    // output data of each row
                     $row = $result->fetch_array();
 
-                    echo $row[1]."<br/>";
+                    echo $a.". ";
                     echo $row[2]."<br/><br/>";
 
-                    for($i = 3; $i<12; $i+=1)
-                        if($row[$i]!="")
+                    for($i = 1; $i<10; $i+=1)
+                        if($row[$i+2]!="")
                         {
-                            echo '<input type="hidden" name="odp'.$i.'" value="0" />';
-                            echo '<input type="checkbox" name="odp'.$i.'" value="1" />';
-                            echo '<label for="odp'.$i.'">'.$row[$i].'</label><br>';
+                            echo '<input type="hidden" name="odp'.$a.$i.'" value="0" />';
+                            echo '<input type="checkbox" name="odp'.$a.$i.'" value="1" />';
+                            echo '<label for="odp'.$i.'">'.$row[$i+2].'</label><br>';
                         }
-                        echo '<input type="submit" value="Sprawdź">';
+                        
                 } 
-
-                  $conn->close();
+                echo '</div>';
+            }
+            echo '<input type="submit" value="Sprawdź">';
+            $conn->close();
             ?>
         </form>                
     </div>    
