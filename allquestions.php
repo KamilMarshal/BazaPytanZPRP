@@ -2,11 +2,9 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    < meta http-equiv="Content-Language" content="pl" >
-    < meta charset="UTF-8" >
+    <meta charset="UTF-8">
     <title>Baza Pytań ZPRP</title>
     <link rel="stylesheet" href="css/style.css">
-
 </head>
 <body>
 <div id="container">
@@ -16,7 +14,7 @@
     </div>
     <div id = "menu">
         <div class="wypelniacz">
-                <a href="allquestions.php"><h2>Przeglądaj pytania</h2></a>
+            <a href="allquestions.php"><h2>Przeglądaj pytania</h2></a>
         </div>
         <div class="wypelniacz">
             <a href="shorttest.php"><h2>Rozwiązuj 1 pytanie</h2></a>
@@ -29,13 +27,11 @@
     <form action="fullanswer.php" method="POST">
             <?php 
             include("connection.php");
-            for($a=1;$a<31;$a+=1)
+            for($a=1;$a<399;$a+=1)
             {
                 echo '<div class="answers">';
-                $idQ = rand(0,399);
-                //$idQ = 98;
-                $_SESSION["fqid"][$a] = $idQ;
-                $sql = "SELECT * FROM questions where id = ".$idQ;
+                $_SESSION["fqid"][$a] = $a;
+                $sql = "SELECT * FROM questions where id = ".$a;
                 $result = $conn->query($sql);
                 if ($result->num_rows > 0) 
                 {
@@ -48,7 +44,7 @@
                         if($row[$i+2]!="")
                         {
                             echo '<input type="hidden" name="odp'.$a.$i.'" value="0" />';
-                            echo '<input type="checkbox" name="odp'.$a.$i.'" value="1" />';
+                            echo '&nbsp;<input type="hidden" name="odp'.$a.$i.'" value="1" />';
                             echo '<label for="odp'.$i.'">'.$row[$i+2].'</label><br>';
                         }
                         
@@ -60,8 +56,7 @@
             ?>
         </form>
     </div>
-</div>
-
+    </div>
 </div>
 </body>
 </html>

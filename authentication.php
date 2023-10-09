@@ -1,7 +1,8 @@
 <?php session_start();?>
 <!DOCTYPE html>
-<html lang="pl">
-<head>
+<html>
+<head lang="pl">
+    <meta charset="UTF-8">
   <?php
     include("connection.php");
     echo(' <link rel="stylesheet" href="css/style.css">');
@@ -25,12 +26,13 @@
               {
                 echo("Poprawnie zalogowano! <br/>");
                 echo "Witaj ". $row["login"]. "!<br>";
-                $_SESSION["username"] = $row["login"];
-                header('Refresh: 1; URL=menu.php');
+                $_SESSION["username"] = $row["login"];                
+                echo '<script>window.location.href = "menu.php";</script>';
               }
-            } else {
-              echo("Błędny login lub hasło! <br/>");
-              header('Refresh: 1; URL=index.php');
+            } 
+          else {
+              echo("Błędny login lub hasło! <br/>");              
+              echo '<script>window.location.href = "index.php";</script>';
             }
             $conn->close();
         ?>
