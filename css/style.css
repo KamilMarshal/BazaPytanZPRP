@@ -28,9 +28,9 @@ body {
     float: left;
     width: 18%;
     border: 1px solid rgba(255, 107, 107, 0.25);
-    border-bottom: none;
     margin: 1%;
     min-height: 700px;
+    height: 80vh;
 }
 
 #content {
@@ -38,11 +38,13 @@ body {
     width: 78%;
     border: 1px solid rgba(255, 107, 107, 0.25);
     margin: 1%;
+    padding-left: 1%;
     min-height: 700px;
+    height: 80vh;
 }
 
 #menu,
-div#content {
+#content {
     display: table-cell;
     overflow-y: auto;
     overflow-x: hidden;

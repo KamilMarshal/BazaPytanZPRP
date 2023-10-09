@@ -13,7 +13,7 @@
     $sql = "SELECT * FROM login WHERE login = \"{$username}\" AND password = \"{$password}\"";
 
     $result = $conn->query($sql);
-?>
+  ?>
 </head>
 <body>
   <div id="container">

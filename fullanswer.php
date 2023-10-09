@@ -5,6 +5,7 @@
     <meta charset="UTF-8" />    
   <?php
   include("connection.php");
+  include("logchecker.php");
   echo (' <link rel="stylesheet" href="css/style.css">');
   $_SESSION["RpktSum"] = 0;
   ?>  

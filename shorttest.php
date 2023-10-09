@@ -2,8 +2,7 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    < meta http-equiv="Content-Language" content="pl" >
-    < meta charset="UTF-8" >
+    <meta charset="UTF-8">
     <title>Baza Pytań ZPRP</title>
     <link rel="stylesheet" href="css/style.css">
 
@@ -48,7 +47,7 @@
                             {
                                 echo '<input type="hidden" name="odp'.$i.'" value="0" />';
                                 echo '<input type="checkbox" name="odp'.$i.'" value="1" />';
-                                echo '<label for="odp'.$i.'">'.$row[$i].'</label><br>';
+                                echo '<label for="odp'.$i.'"> '.$row[$i].'</label><br>';
                             }
                             echo '<br><input type="submit" value="Sprawdź">';
                     } 

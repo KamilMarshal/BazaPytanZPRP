@@ -10,7 +10,7 @@
 <div id="container">
     <div id = "container">
     <div id = "header">
-    <h1>Rozwiązuj 30 pytań</h1>
+    <h1>Przeglądaj pytania</h1>
     </div>
     <div id = "menu">
         <div class="wypelniacz">
@@ -27,6 +27,7 @@
     <form action="fullanswer.php" method="POST">
             <?php 
             include("connection.php");
+            include("logchecker.php");
             for($a=1;$a<399;$a+=1)
             {
                 echo '<div class="answers">';
@@ -51,7 +52,6 @@
                 } 
                 echo '</div>';
             }
-            echo '<input type="submit" value="Sprawdź">';
             $conn->close();
             ?>
         </form>
