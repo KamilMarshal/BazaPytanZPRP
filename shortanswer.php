@@ -88,8 +88,10 @@
           }
         echo '<div>';
       }
+      echo '<b>';
       if ($point == 1) echo '<span>1 punkt</span>';
       else echo '<span class="pkt">0 punktów</span>';
+      echo '</b>';
       echo '<br><span>Objaśnienia: ' . $Ans[10] . '</span>';
       echo '</div><br>';
       echo '<a href="shorttest.php"><button>Następne pytanie</button></a>';
